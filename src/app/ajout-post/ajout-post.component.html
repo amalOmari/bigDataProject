@@ -1,0 +1,80 @@
+<app-header></app-header>
+
+	<div class="slider display-table center-text">
+		<h1 class="title display-table-cell"><b>Plus de partage plus d'apprentissage !</b></h1>
+	</div><!-- slider -->
+
+	<section class="blog-area section">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-lg-2 col-md-0"></div>
+				<div class="col-lg-8 col-md-12">
+					<div class="post-wrapper">
+
+						<h3 class="title"><a href="#" style="font: larger Lato, Roboto, sans-serif; font-weight: 900;color:#007FFF"><b>Ajouter un Post</b></a></h3>
+
+			<form class="contact100-form validate-form" #postsForm="ngForm" (ngSubmit)="onSave(postsForm)">
+				<div class="wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">Titre:</span>
+					<input class="input100" type="text" name="titre" #titre="ngModel"  [(ngModel)]="postService.selectedPost.titre"  placeholder="Entrez le titre du post">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Message is required">
+					<span class="label-input100">Contenu:</span>
+					<textarea class="input100" name="contenu" #contenu="ngModel"  [(ngModel)]="postService.selectedPost.text" placeholder="Contenu du post..."></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+							<!-- Upload  -->
+							<div id="file-upload-form" class="uploader wrap-input100 validate-input">
+							<span class="label-input100">Choisissez un fichier:</span>
+							  <input id="file-upload" type="file" name="fileUpload" #fichier="ngModel"  [(ngModel)]="postService.selectedPost.fichier"  accept="file/*" (change)="onFileChange($event)" />
+
+							  <label for="file-upload" id="file-drag">
+							    <img id="file-image" src="#" alt="Preview" class="hidden">
+							    <div id="start">
+							      <i class="fa fa-download" aria-hidden="true"></i>
+							      <div>Selectionnez ou draguez un fichier</div>
+							      <div id="notimage" class="hidden">Please select an image</div>
+							      <span id="file-upload-btn" class="btn btn-primary">Selectionner</span>
+							    </div>
+							    <div id="response" class="hidden">
+							      <div id="messages"></div>
+							      <progress class="progress" id="file-progress" value="0">
+							        <span>0</span>%
+							      </progress>
+							    </div>
+							  </label>
+							</div>
+
+
+				<div class="container-contact100-form-btn">
+					<button class="login100-form-btn" type="Submit">
+						<span>
+              Publier
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+			</form>
+		
+
+					
+							
+							
+
+					</div><!-- post-wrapper -->
+				</div><!-- col-sm-8 col-sm-offset-2 -->
+			</div><!-- row -->
+
+		</div><!-- container -->
+	</section><!-- section -->
+
+<app-footer></app-footer>
+
+
+
+	
+

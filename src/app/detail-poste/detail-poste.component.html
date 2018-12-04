@@ -1,0 +1,143 @@
+<app-header></app-header>
+<div style="width: 30%; height: 20%"></div>
+<section class="post-area">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-1 col-md-0"></div>
+      <div class="col-lg-10 col-md-12">
+
+        <div class="main-post">
+
+          <div class="post-top-area">
+
+            <div class="post-info">
+
+              <div class="left-area">
+                <a class="avatar" href="#"><img src="../assets/images/avatar-1-120x120.jpg" alt="Profile Image"></a>
+              </div>
+
+              <div class="middle-area">
+                <a *ngIf="post" class="name" ><b>{{post.auteur.nom}}&nbsp;{{post.auteur.prenom}}</b></a><br/>
+                <h6 *ngIf="post" class="date">{{post.datePublication}}</h6>
+                
+              </div>
+
+            </div><!-- post-info -->
+
+            
+
+            <h3 *ngIf="post" class="title"><a ><b>{{post.titre}}</b></a></h3>
+
+            
+
+            <p *ngIf="post" class="para">{{post.text}}</p>
+
+          </div><!-- post-top-area -->
+
+         
+          <div class="post-bottom-area">
+            <div *ngIf="post && post.image" ><img  src="../assets/imagesPub/{{post.image}}" style="height: 250px; width: 100%; margin-bottom: 90px;"  alt="Blog Image"></div>
+            <div *ngIf="post && post.video"><video width="100%" height="300px" controls="controls"><source src="../assets/VideoPub/{{post.video}}" type="video/mp4" />Ici l'alternative à la vidéo : un lien de téléchargement, un message, etc.</video></div>
+
+           
+
+            <!-- <ul class="tags">
+              <li><a href="#">Mnual</a></li>
+              <li><a href="#">Liberty</a></li>
+              <li><a href="#">Recommendation</a></li>
+              <li><a href="#">Inspiration</a></li>
+            </ul> -->
+
+            <div class="post-icons-area">
+              <ul class="post-icons">
+                <li><a (click)="liker()"><i class="ion-heart"></i>{{nbLike}}</a></li>
+                <li><a ><i class="ion-chatbubble"></i>6</a></li>
+                <li><a ><i class="ion-eye"></i>138</a></li>
+              </ul>
+
+              <ul class="icons">
+                <li>SHARE : </li>
+                <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+                <li><a href="#"><i class="ion-social-pinterest"></i></a></li>
+              </ul>
+            </div>
+
+          </div><!-- post-bottom-area -->
+
+        </div><!-- main-post -->
+      </div><!-- col-lg-8 col-md-12 -->
+    </div><!-- row -->
+  </div><!-- container -->
+</section><!-- post-area -->
+
+<section class="comment-section center-text" style="margin-top: 30px;">
+  <div class="container">
+    <h4><b>POST COMMENT</b></h4>
+    <div class="row">
+
+      <div class="col-lg-2 col-md-12"></div>
+
+      <div class="col-lg-8 col-md-12">
+        <div class="comment-form">
+          <form #commentForm="ngForm" (ngSubmit)="commenter(commentForm)">
+            <div class="row">
+
+             
+
+              <div class="col-sm-12">
+                <textarea id="comment" name="comment" #comment="ngModel" [(ngModel)]="newComment" rows="2" class="text-area-messge form-control"
+                  placeholder="Tapez votre commentaire" aria-required="true" aria-invalid="false"></textarea >
+              </div><!-- col-sm-12 -->
+              <div class="col-sm-12">
+                <button class="submit-btn" type="submit" id="form-submit" ><b>Commenter</b></button>
+              </div><!-- col-sm-12 -->
+
+            </div><!-- row -->
+          </form>
+        </div><!-- comment-form -->
+
+        <h4><b>Les commentaires</b></h4>
+
+      
+
+        <div class="commnets-area text-left" *ngIf="contentComment">
+
+          <div class="comment">
+
+            <div class="post-info">
+
+              <div class="left-area">
+                <a class="avatar" href="#"><img src="../assets/images/avatar-1-120x120.jpg" alt="Profile Image"></a>
+              </div>
+
+              <div class="middle-area">
+                <a class="name" href="#"><b>{{contentComment.auteur.nom}}</b></a>
+                <h6 class="date">{{contentComment.dateCreation}}</h6>
+              </div>
+
+              <div class="right-area">
+                <h5 class="reply-btn" ><a ><b>REPLY</b></a></h5>
+              </div>
+
+            </div><!-- post-info -->
+
+            <p>{{contentComment.text}}</p>
+
+          </div>
+
+        </div><!-- commnets-area -->
+
+        <!-- <a class="more-comment-btn" href="#"><b>VIEW MORE COMMENTS</b></a> -->
+
+      </div><!-- col-lg-8 col-md-12 -->
+
+    </div><!-- row -->
+
+  </div><!-- container -->
+
+</section>
+
+<app-footer></app-footer>
